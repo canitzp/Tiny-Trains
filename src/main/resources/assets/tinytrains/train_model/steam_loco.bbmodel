@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "format_version":"3.2",
+    "model_format":"modded_entity",
+    "box_uv":true
+  },
+  "name":"Train",
+  "geo_name":"Train",
+  "modded_entity_version":"1.15",
+  "resolution":{
+    "width":16,
+    "height":16
+  },
+  "elements":[
+    {
+      "name":"Base",
+      "from":[-7,0,-8],
+      "to":[7,4,8],
+      "autouv":1,
+      "color":3,
+      "locked":false,
+      "origin":[5,0,6],
+      "faces":{
+        "north":{
+          "uv":[16,16,30,20]
+        },
+        "east": {
+          "uv":[0,16,16,20]
+        },
+        "south":{
+          "uv":[46,16,60,20]
+        },
+        "west":{
+          "uv":[30,16,46,20]
+        },
+        "up":{
+          "uv":[30,16,16,0]
+        },
+        "down":{
+          "uv":[44,0,30,16]
+        }
+      },
+      "uuid":"f6e3c9f0-829c-6f45-fcb2-809c7fc6bda8"
+    },{"name":"Back","from":[-7,4,1],"to":[7,12,8],"autouv":1,"color":3,"locked":false,"origin":[0,4,7],"faces":{"north":{"uv":[7,7,21,15]},"east":{"uv":[0,7,7,15]},"south":{"uv":[28,7,42,15]},"west":{"uv":[21,7,28,15]},"up":{"uv":[21,7,7,0]},"down":{"uv":[35,0,21,7]}},"uuid":"b449f04a-7841-138c-8f6f-0552ca22f328"},{"name":"cube","from":[-5,4,-8],"to":[5,8,1],"autouv":1,"color":5,"locked":false,"origin":[0,4,-1],"faces":{"north":{"uv":[9,9,19,13]},"east":{"uv":[0,9,9,13]},"south":{"uv":[28,9,38,13]},"west":{"uv":[19,9,28,13]},"up":{"uv":[19,9,9,0]},"down":{"uv":[29,0,19,9]}},"uuid":"fff28031-effb-9fbe-1c2c-ca6c981d7a2a"},{"name":"PuffPuff","from":[-1,8,-8],"to":[1,12,-6],"autouv":1,"color":5,"locked":false,"origin":[0,8,-8],"faces":{"north":{"uv":[2,2,4,6]},"east":{"uv":[0,2,2,6]},"south":{"uv":[6,2,8,6]},"west":{"uv":[4,2,6,6]},"up":{"uv":[4,2,2,0]},"down":{"uv":[6,0,4,2]}},"uuid":"a962a1a0-9644-1b2d-dd01-3521ad2d66c2"}],"outliner":["f6e3c9f0-829c-6f45-fcb2-809c7fc6bda8","b449f04a-7841-138c-8f6f-0552ca22f328","fff28031-effb-9fbe-1c2c-ca6c981d7a2a","a962a1a0-9644-1b2d-dd01-3521ad2d66c2"],"textures":[]}
