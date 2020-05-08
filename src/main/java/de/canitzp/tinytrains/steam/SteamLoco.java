@@ -2,12 +2,13 @@ package de.canitzp.tinytrains.steam;
 
 import de.canitzp.tinytrains.AdvancedMinecartEntity;
 import de.canitzp.tinytrains.TinyTrains;
+import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.world.World;
 
-public class SteamLoco extends AdvancedMinecartEntity {
+public class SteamLoco extends AdvancedMinecartEntity<SteamLoco> {
     
     public SteamLoco(World world){
         super(TinyTrains.STEAM_LOCO_ENTITY_TYPE, world);
@@ -34,6 +35,11 @@ public class SteamLoco extends AdvancedMinecartEntity {
     @Override
     public boolean canBeRidden() {
         return false;
+    }
+    
+    @Override
+    public EntityModel<SteamLoco> createModel() {
+        return new SteamLocoModel();
     }
     
 }

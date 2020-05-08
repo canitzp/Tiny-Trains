@@ -11,8 +11,6 @@ import net.minecraft.util.ResourceLocation;
 
 public class AdvancedMinecraftRenderer<T extends AdvancedMinecartEntity<T>> extends EntityRenderer<T> {
     
-    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(TinyTrains.MODID, "");
-    
     public AdvancedMinecraftRenderer(EntityRendererManager renderManagerIn) {
         super(renderManagerIn);
     }
