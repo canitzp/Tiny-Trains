@@ -2,6 +2,7 @@ package de.canitzp.tinytrains;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import de.canitzp.tinytrains.item.ItemSpanner;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.Quaternion;
 import net.minecraft.client.renderer.Vector3f;
@@ -12,7 +13,10 @@ import net.minecraft.client.renderer.texture.MissingTextureSprite;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.item.minecart.AbstractMinecartEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
+import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -24,6 +28,8 @@ public abstract class AdvancedMinecartEntity<T extends AdvancedMinecartEntity<T>
     
     private EntityModel<T> cachedModel;
     private ResourceLocation cachedTexture;
+    
+    private AdvancedMinecartEntity<?> pullingEntity;
     
     public AdvancedMinecartEntity(EntityType<?> type, World world) {
         super(type, world);
@@ -43,6 +49,34 @@ public abstract class AdvancedMinecartEntity<T extends AdvancedMinecartEntity<T>
     @Override
     public IPacket<?> createSpawnPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
+    }
+    
+    @Override
+    public void tick() {
+        super.tick();
+        // todo add pulling code
+    }
+    
+    @Override
+    public boolean processInitialInteract(@Nonnull PlayerEntity player, @Nonnull Hand hand) {
+        ItemStack held = player.getHeldItem(hand);
+        if(!held.isEmpty() && held.getItem() instanceof ItemSpanner){
+            
+            return true;
+        }
+        return super.processInitialInteract(player, hand);
+    }
+    
+    public void setPullingEntity(AdvancedMinecartEntity<?> pullingEntity){
+        this.pullingEntity = pullingEntity;
+    }
+    
+    public boolean hasEntityToPull(){
+        return this.pullingEntity != null;
+    }
+    
+    public AdvancedMinecartEntity<?> getPullingEntity(){
+        return this.pullingEntity;
     }
     
     public EntityModel<T> createModel(){
