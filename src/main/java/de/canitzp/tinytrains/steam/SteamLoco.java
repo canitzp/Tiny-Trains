@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class SteamLoco extends AdvancedMinecartEntity<SteamLoco> {
@@ -42,4 +43,8 @@ public class SteamLoco extends AdvancedMinecartEntity<SteamLoco> {
         return new SteamLocoModel();
     }
     
+    @Override
+    public ResourceLocation createTexture() {
+        return new ResourceLocation(TinyTrains.MODID, "textures/trains/steam_loco.png");
+    }
 }

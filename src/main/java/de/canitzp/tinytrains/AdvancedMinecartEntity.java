@@ -23,6 +23,7 @@ import javax.annotation.Nonnull;
 public abstract class AdvancedMinecartEntity<T extends AdvancedMinecartEntity<T>> extends AbstractMinecartEntity {
     
     private EntityModel<T> cachedModel;
+    private ResourceLocation cachedTexture;
     
     public AdvancedMinecartEntity(EntityType<?> type, World world) {
         super(type, world);
@@ -52,16 +53,23 @@ public abstract class AdvancedMinecartEntity<T extends AdvancedMinecartEntity<T>
         return this.cachedModel != null ? this.cachedModel : (this.cachedModel = this.createModel());
     }
     
-    public ResourceLocation getTexture(){
+    public ResourceLocation createTexture(){
         return MissingTextureSprite.getLocation();
+    }
+    
+    public final ResourceLocation getTexture(){
+        return this.cachedTexture != null ? this.cachedTexture : (this.cachedTexture = this.createTexture());
     }
     
     public void render(EntityRendererManager rendererManager, T entity, float entityYaw, float partialTicks, MatrixStack matrixStack, IRenderTypeBuffer buffer, int packedLight){
         if(this.getModel() != null){
             matrixStack.push();
+            
+            matrixStack.rotate(Vector3f.XN.rotationDegrees(180F));
+            matrixStack.translate(0, -0.5F, 0);
     
-            matrixStack.translate(0.0D, 0.375D, 0.0D);
-            matrixStack.rotate(Vector3f.YP.rotationDegrees(180.0F - entityYaw));
+            //matrixStack.translate(0.0D, 0.375D, 0.0D);
+            matrixStack.rotate(Vector3f.YP.rotationDegrees(entityYaw + 45F));
     
             matrixStack.scale(-1.0F, -1.0F, 1.0F);
             this.getModel().setRotationAngles(entity, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F);

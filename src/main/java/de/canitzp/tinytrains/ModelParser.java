@@ -54,4 +54,10 @@ public class ModelParser {
         
     }
     
+    private static class ModelElement {
+        private String name;
+        private UUID uuid;
+        
+    }
+    
 }

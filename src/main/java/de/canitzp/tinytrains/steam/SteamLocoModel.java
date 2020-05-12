@@ -12,21 +12,21 @@ public class SteamLocoModel extends EntityModel<SteamLoco> {
     private final ModelRenderer wheelno, wheelne;
     
     public SteamLocoModel() {
-        textureWidth = 16;
-        textureHeight = 16;
+        textureWidth = 32;
+        textureHeight = 35;
         
         root = new ModelRenderer(this);
         root.setRotationPoint(0, -8, 0);
         
         base = new ModelRenderer(this);
-        base.addBox(-3, 1, -8, 6, 1, 15, 0, false);
-        base.addBox(-4, 2, -8, 8, 3, 15, 0, false);
-        base.addBox(-7, 5, -8, 14, 1, 15, 0, false);
-        base.addBox(-4, 6, -8, 8, 3, 8, 0, false);
-        base.addBox(-1, 9, -8, 2, 4, 2, 0, false);
-        base.addBox(-7, 6, 0, 14, 8, 7, 0, false);
-        base.addBox(-7, 2, -8, 2, 3, 15, 0, false);
-        base.addBox(5, 2, -8, 2, 3, 15, 0, false);
+        base.addBox("BaseBottom", -3, 1, -8, 6, 1, 15, 0, 0, 16);
+        base.addBox("BaseMiddle", -4, 2, -8, 8, 3, 15, 0, 0, 16);
+        base.addBox("BaseMiddleplate", -7, 5, -8, 14, 1, 15, 0, 0, 16);
+        base.addBox("BaseFront", -4, 6, -8, 8, 3, 8, 0, 0, 16);
+        base.addBox("PuffPuff" ,-1, 9, -8, 2, 4, 2, 0, 10, 0);
+        base.addBox("BaseBack", -7, 6, 0, 14, 8, 7, 0, 0, 16);
+        base.addBox("CoverWest", -7, 2, -8, 2, 3, 15, 0, 0, 16);
+        base.addBox("CoverEast", 5, 2, -8, 2, 3, 15, 0, 0, 16);
         
         wheelno = new ModelRenderer(this);
         wheelno.addBox(4, 1, -6, 1, 2, 2, 0, false);
